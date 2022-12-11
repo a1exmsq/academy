@@ -31,13 +31,13 @@ public class Task3 {
                 arrOfChars2[i] = chars2;
         }
 
-//        String str1 = String.valueOf(arrOfChars1);
-//        String str2 = String.valueOf(arrOfChars2);
-
         String str1 = Arrays.toString(arrOfChars1).replace("[","").replace(",","")
                 .replace(" ","").replace("]","");
         String str2 = Arrays.toString(arrOfChars2).replace("[" ,"").replace(",","")
                 .replace(" ","").replace("]","");
+
+//        String str1 = String.valueOf(arrOfChars1); второй вариант
+//        String str2 = String.valueOf(arrOfChars2);
 
         System.out.println("Первая половина первого слова: " + str1);
         System.out.println("Вторая половина второго слова: " + str2.substring(word2.length() / 2, word2.length()));

@@ -37,7 +37,7 @@ public class Deal {
 
                     } else if (players < 0){
 
-                        System.out.println("Число игроков не может быть меньше 0");
+                        System.out.println("Число игроков не может быть меньше 0.");
 
                     } else {
 
@@ -47,7 +47,7 @@ public class Deal {
 
             } else {
 
-                System.out.println("Вы ввели не число, или Ваше число слишком большое!");
+                System.out.println("Введенное число слишком большое!");
             }
         }
 
