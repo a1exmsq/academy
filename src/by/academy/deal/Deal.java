@@ -1,6 +1,9 @@
 package by.academy.deal;
 
+import by.academy.deal.products.categories.buildingmaterials.BrickBM;
+
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Deal {
 
@@ -49,5 +52,15 @@ public class Deal {
 
     public void setDeadlineDate(LocalDate deadlineDate) {
         this.deadlineDate = deadlineDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Deal{" +
+                "seller=" + seller +
+                ", buyer=" + buyer +
+                ", products=" + Arrays.toString(products) +
+                ", deadlineDate=" + deadlineDate +
+                '}';
     }
 }

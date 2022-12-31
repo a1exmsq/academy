@@ -1,5 +1,7 @@
 package by.academy.deal;
 
+import java.util.Arrays;
+
 public class Product {
 
     private String name;
@@ -58,11 +60,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                ", category='" + category + '\'' +
-                '}';
+        return name;
     }
 }
