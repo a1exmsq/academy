@@ -1,6 +1,6 @@
 package by.academy.deal;
 
-import by.academy.deal.products.categories.BuildingMaterials;
+
 import by.academy.deal.products.categories.buildingmaterials.BrickBM;
 import by.academy.deal.products.categories.buildingmaterials.Cement;
 import by.academy.deal.products.categories.buildingmaterials.GypsumPlasterboard;
@@ -10,15 +10,13 @@ import by.academy.deal.products.categories.metalwork.Nut;
 import by.academy.deal.products.categories.tools.ClawHammer;
 import by.academy.deal.products.categories.tools.ConcreteMixer;
 import by.academy.deal.products.categories.tools.Screwdriver;
-
-import java.util.Arrays;
 import java.util.Scanner;
-// короче говоря до нг не успел сделать, сильно занят был, до занятия полностью сделаю:)
 
 public class Application {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         Menu menu = new Menu();
+        Deal deal = new Deal();
         menu.hello();
         Product[] shoppingCart = new Product[15];
         Product[] products = new Product[15];
@@ -32,10 +30,8 @@ public class Application {
         products[7] = new ConcreteMixer(1);
         products[8] = new Screwdriver(1);
 
-        menu.printCatalog(products);
+        deal.printCatalog(products);
         menu.addToCartText();
-
-
 
         for (int i = 0; i < shoppingCart.length; i++){
             shoppingCart[i] = menu.addToCart(products);
@@ -45,33 +41,28 @@ public class Application {
             System.out.println("1 - ДА, 2 - Посмотерь в корзину ");
             int cont = sc.nextInt();
             if (cont == 1) {
-                menu.printCatalog(products);
+                deal.printCatalog(products);
             } else if (cont == 2) {
-                menu.printShoppingCart(shoppingCart);
+                deal.printShoppingCart(shoppingCart);
+                System.out.println("1 - Вернутся к каталогу, 2 - Оплатить товары");
+                if (sc.nextInt() == 1)
+                deal.printCatalog(products);
+                else break;
             } else {
                 System.out.println("Число введено неверно");
             }
 
         }
-//        System.out.println("Печатаем чек: ");
-        System.out.println(Arrays.toString(shoppingCart));
-
-
+        System.out.println("Хотите ли удалить некоторые позиции из корзины: ");
+        System.out.println("1 - НЕТ, печать чека; 2 - ДА");
+        int delete = sc.nextInt();
+        if (delete == 2) {
+            System.out.println("Введите номер позиции из корзины которую хотите удалить: ");
+            menu.deleteFromCart(shoppingCart);
+        } else {
+            System.out.println("Печатаем чек: ");
+            deal.printCheck(shoppingCart);
+        }
 
     }
 }
-
-
-
-
-
-//        System.out.println("");
-//
-//
-//       Product bm = new BuildingMaterials("кирпич", 123, 12, "");
-//       System.out.println(bm);
-//        Product nw = new NailMW(44);
-//        System.out.println(nw.calcPrice(nw.getPrice(), sc.nextInt()));
-//        System.out.println(nw);
-//        BrickBM brick = new BrickBM(sc.nextInt());
-//        Cement cement = new Cement(sc.nextInt());
