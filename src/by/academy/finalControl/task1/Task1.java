@@ -6,6 +6,11 @@ public class Task1 {
 
     static Scanner sc = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        String string = sc.next();
+        System.out.println(compressString(string));
+    }
+
     public static String compressString(String text) {
         int strLength = text.length();
 
@@ -14,7 +19,9 @@ public class Task1 {
             char lastChar = text.charAt(0);
             int charCount = 1;
             for(int i = 1; i < strLength; i++) {
-                if(text.charAt(i) == lastChar) charCount++;
+                if(text.charAt(i) == lastChar) {
+                    charCount++;
+                }
                 else {
                     compressedText.append(lastChar).append(charCount);
                     lastChar = text.charAt(i);
@@ -22,13 +29,12 @@ public class Task1 {
                 }
             }
             compressedText.append(lastChar).append(charCount);
-            if(compressedText.length() < strLength)
+            if(compressedText.length() < strLength){
                 return compressedText.toString();
-        }		return text;
+            }
+        }
+        return text;
     }
 
-    public static void main(String[] args) {
-        String string = sc.next();
-        System.out.println(compressString(string));
-    }
+
 }

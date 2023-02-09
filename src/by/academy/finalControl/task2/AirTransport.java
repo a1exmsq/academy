@@ -1,9 +1,8 @@
 package by.academy.finalControl.task2;
 
-public class AirTransport {
+public class AirTransport  {
 
     protected Double maxSpeed;
-
     protected String type;
     protected Double loadCapacity;
     protected Double fuelTankCapacity;
@@ -19,6 +18,8 @@ public class AirTransport {
         this.rangeOfFlight = fuelTankCapacity / fuelConsumption * 100;
     }
 
+    public AirTransport() {
+    }
     public Double getMaxSpeed() {
         return maxSpeed;
     }
@@ -80,6 +81,5 @@ public class AirTransport {
         return sb.toString();
     }
 
-    public AirTransport() {
-    }
+
 }

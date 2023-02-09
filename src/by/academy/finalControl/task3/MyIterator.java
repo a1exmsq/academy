@@ -5,24 +5,25 @@ import java.util.Iterator;
 
 public class MyIterator<T> implements Iterator<T> {
 
-    private T[] array;
-    private int index;
+    private MyIterator<MyIterator<T>> iterators;
+
+    private MyIterator<T> iterator;
 
     @Override
     public boolean hasNext() {
-        if (array == null || array.length <= index) {
-            return false;
-        }
-
-        return array[index] != null;
+       return iterator != null;
     }
 
     @Override
     public T next() {
-        return array[index++];
+        T t = iterator.next();
+
+        while (iterator != null && !iterator.hasNext()){
+            iterator = this.iterators.hasNext() ? this.iterators.next() : null;
+        }
+
+        return t;
     }
 
-    public MyIterator(MyIterator<T>[] arrayIterators) {
-        super();
-    }
+
 }
